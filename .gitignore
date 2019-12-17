@@ -3,4 +3,3 @@ build/**
 .idea/**
 yarn-error.log
 *.tgz
-dist/**
