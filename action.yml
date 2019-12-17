@@ -1,0 +1,26 @@
+name: 'action-minver'
+description: 'Runs minver to version your artifacts!'
+author: 'thefringeninja'
+inputs:
+  auto-increment:
+    description: 'Specifies which part of the version to auto-increment. By default, MinVer will auto-increment the patch version, but you can specify minor or major to increment the minor or major version instead.'
+    required: false
+  build-metadata:
+    description: 'Sets custom build metadata for your semantic version.'
+    required: false
+  default-pre-release-phase:
+    description: "Specifies the default pre-release phase. Defaults to 'alpha.'"
+    required: false
+  minimum-major-minor:
+    description: "Specifies the minimum version to use when to tags exist."
+    required: false
+  tag-prefix:
+    description: "Specifies the prefix of the tags. For example if your tags are like v1.2.3 set this to 'v.'"
+    required: false
+  verbosity:
+    description: "Specifies the log level. Can be set to:  e[rror], w[arn], i[nfo] (default), d[ebug], or t[race]."
+    required: false
+
+runs:
+  using: 'node12'
+  main: 'dist/main.js'

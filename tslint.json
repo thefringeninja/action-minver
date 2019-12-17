@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "interface-name": [false, "always-prefix"],
+    "member-access": false,
+    "variable-name": [true, "check-format", "allow-leading-underscore", "allow-pascal-case"],
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": false,
+    "quotemark": [true, "single"]
+  },
+  "defaultSeverity": "error",
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.ts",
+      "./**/*.js"
+    ]
+  }
+}

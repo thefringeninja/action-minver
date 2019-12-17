@@ -1,0 +1,38 @@
+{
+  "name": "action-docker-build",
+  "version": "0.1.0",
+  "description": "Version your code with MinVer",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "prettier --list-different \"src/**/*.ts\" && tslint --project ./",
+    "format": "prettier --write \"src/**/*.ts\" && tslint --project ./ --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/thefringeninja/action-minver.git"
+  },
+  "author": "João P. Bragança",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thefringeninja/action-minver/issues"
+  },
+  "homepage": "https://github.com/thefringeninja/action-minver#readme",
+  "dependencies": {
+    "@actions/core": "1.2.0",
+    "@actions/exec": "1.0.1",
+    "decamelize": "3.2.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "12.11.6",
+    "jest": "24.9.0",
+    "jest-each": "24.9.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "24.2.0",
+    "tslint": "5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "3.6.4"
+  }
+}
