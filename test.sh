@@ -2,4 +2,4 @@
 
 docker build -t action-minver .
 
-docker run --rm -it action-minver
+docker run --rm action-minver
