@@ -7,7 +7,7 @@ This repository contains a GitHub Action to run [MinVer](https://github.com/adam
 ## Configuration
 
 ```yaml
-- uses thefringeninja/action-minver
+- uses: thefringeninja/action-minver
   with:
     # Optional. Specifies which part of the version to auto-increment.
     auto-increment: patch
@@ -23,8 +23,38 @@ This repository contains a GitHub Action to run [MinVer](https://github.com/adam
     verbosity: trace
 ```
 
+## Outputs
+- `version`
+
 ## Prerequisites
 
 You must run the following actions first:
 - `actions/checkout`: in addition, set `fetch-depth` to 0 to fetch the entire repository, including tags. Without this, the correct version may not get calculated.
-- `actions/setup-dotnet`: `minver-cli` is a dotnet tool and requires the dotnet sdk (at least 2.1) to run.
+
+
+## Example
+```yaml
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches:
+    - master
+
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 0
+    - name: run minver
+      id: version
+      uses: thefringeninja/action-minver
+    - name: output
+      run: |
+        echo ${{ steps.version.outputs.version }}
+```
+Please pay special attention to the step id; without this you will not be able to refer to outputs in subsequent steps.
