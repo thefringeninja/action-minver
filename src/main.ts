@@ -5,7 +5,8 @@ import getArgs from './getArgs';
 const stdout = (data: Buffer) =>
   core.setOutput('version', data.toString().trim());
 
-const minver = '/root/.dotnet/tools/minver';
+const minverPath = './minver';
+const minver = `${minverPath}/minver`;
 
 const run = async () => {
   const args = getArgs();
@@ -13,7 +14,8 @@ const run = async () => {
   await exec('dotnet', [
     'tool',
     'install',
-    '--global',
+    '--tool-path',
+    minverPath,
     'minver-cli',
     '--version',
     '2.0.0',

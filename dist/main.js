@@ -23,13 +23,15 @@ const core = __importStar(require("@actions/core"));
 const exec_1 = require("@actions/exec");
 const getArgs_1 = __importDefault(require("./getArgs"));
 const stdout = (data) => core.setOutput('version', data.toString().trim());
-const minver = '/root/.dotnet/tools/minver';
+const minverPath = './minver';
+const minver = `${minverPath}/minver`;
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
     const args = getArgs_1.default();
     yield exec_1.exec('dotnet', [
         'tool',
         'install',
-        '--global',
+        '--tool-path',
+        minverPath,
         'minver-cli',
         '--version',
         '2.0.0',
