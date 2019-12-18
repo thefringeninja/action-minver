@@ -2,7 +2,8 @@ import * as core from '@actions/core';
 import { exec } from '@actions/exec';
 import getArgs from './getArgs';
 
-const stdout = (data: Buffer) => core.setOutput('version', data.toString());
+const stdout = (data: Buffer) =>
+  core.setOutput('version', data.toString().trim());
 
 const minver = '/root/.dotnet/tools/minver';
 
