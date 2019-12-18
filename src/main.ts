@@ -3,7 +3,6 @@ import { exec } from '@actions/exec';
 import getArgs from './getArgs';
 
 const stdout = (data: Buffer) => core.setOutput('version', data.toString());
-const stderr = (data: Buffer) => core.error(data.toString());
 
 const minver = '/root/.dotnet/tools/minver';
 
@@ -23,7 +22,6 @@ const run = async () => {
     await exec(minver, args, {
       listeners: {
         debug: (data: string) => core.debug(data),
-        stderr,
         stdout,
       },
     });

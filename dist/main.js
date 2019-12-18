@@ -23,7 +23,6 @@ const core = __importStar(require("@actions/core"));
 const exec_1 = require("@actions/exec");
 const getArgs_1 = __importDefault(require("./getArgs"));
 const stdout = (data) => core.setOutput('version', data.toString());
-const stderr = (data) => core.error(data.toString());
 const minver = '/root/.dotnet/tools/minver';
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
     const args = getArgs_1.default();
@@ -39,7 +38,6 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         yield exec_1.exec(minver, args, {
             listeners: {
                 debug: (data) => core.debug(data),
-                stderr,
                 stdout,
             },
         });
