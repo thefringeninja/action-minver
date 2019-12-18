@@ -18,8 +18,11 @@ inputs:
     description: "Specifies the prefix of the tags. For example if your tags are like v1.2.3 set this to 'v.'"
     required: false
   verbosity:
-    description: "Specifies the log level. Can be set to:  e[rror], w[arn], i[nfo] (default), d[ebug], or t[race]."
+    description: "Specifies the log level. Can be set to: e[rror], w[arn], i[nfo] (default), d[ebug], or t[race]."
     required: false
+outputs:
+  version:
+    description: "The calculated version number."
 
 runs:
   using: 'node12'

@@ -7,7 +7,7 @@ This repository contains a GitHub Action to run [MinVer](https://github.com/adam
 ## Configuration
 
 ```yaml
-- uses thefringeninja/action-minver
+- uses: thefringeninja/action-minver
   with:
     # Optional. Specifies which part of the version to auto-increment.
     auto-increment: patch
@@ -22,6 +22,9 @@ This repository contains a GitHub Action to run [MinVer](https://github.com/adam
     # Optional. Specifies the log level.
     verbosity: trace
 ```
+
+## Outputs
+- `version`
 
 ## Prerequisites
 
