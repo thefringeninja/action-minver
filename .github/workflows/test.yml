@@ -1,0 +1,22 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches:
+    - master
+
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 0
+    - name: run minver
+      id: version
+      uses: thefringeninja/action-minver@release/2.0.0-preview1
+    - name: output
+      run: |
+        echo ${{ steps.version.outputs.version }}
