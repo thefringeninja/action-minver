@@ -21,8 +21,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
 const exec_1 = require("@actions/exec");
+const semver_1 = __importDefault(require("semver"));
 const getArgs_1 = __importDefault(require("./getArgs"));
-const stdout = (data) => core.setOutput('version', data.toString().trim());
+const stdout = (data) => {
+    const version = data.toString().trim();
+    const major = semver_1.default.major(version);
+    const minor = semver_1.default.minor(version);
+    const patch = semver_1.default.patch(version);
+    const prerelease = (semver_1.default.prerelease(version) || []).join('.');
+    core.setOutput('version', version);
+    core.setOutput('major', major.toString());
+    core.setOutput('minor', minor.toString());
+    core.setOutput('patch', patch.toString());
+    core.setOutput('prerelease', prerelease);
+};
 const minverPath = './minver';
 const minver = `${minverPath}/minver`;
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -34,7 +46,7 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         minverPath,
         'minver-cli',
         '--version',
-        '2.0.0',
+        '2.3.0',
     ]);
     try {
         yield exec_1.exec(minver, args, {
