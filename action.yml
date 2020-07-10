@@ -23,6 +23,14 @@ inputs:
 outputs:
   version:
     description: "The calculated version number."
+  major:
+    description: "The major component of the version number."
+  minor:
+    description: "The minor component of the version number."
+  patch:
+    description: "The patch component of the version number."
+  prerelease:
+    description: "The prerelease component of the version number."
 
 runs:
   using: 'node12'

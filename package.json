@@ -22,11 +22,13 @@
   "dependencies": {
     "@actions/core": "1.2.0",
     "@actions/exec": "1.0.1",
-    "decamelize": "3.2.0"
+    "decamelize": "3.2.0",
+    "semver": "^7.3.2"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
     "@types/node": "12.11.6",
+    "@types/semver": "^7.3.1",
     "jest": "24.9.0",
     "jest-each": "24.9.0",
     "prettier": "^1.19.1",

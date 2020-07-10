@@ -25,6 +25,10 @@ This repository contains a GitHub Action to run [MinVer](https://github.com/adam
 
 ## Outputs
 - `version`
+- `major`
+- `minor`
+- `patch`
+- `prerelease`
 
 ## Prerequisites
 
